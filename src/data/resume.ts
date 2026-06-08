@@ -70,7 +70,7 @@ export const skills = {
 };
 
 export const expertise = [
-  "Data Structures & Algorithms",
+  "Full Stack Development",
   "Shopify Development",
 ];
 
