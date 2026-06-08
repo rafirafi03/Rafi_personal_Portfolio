@@ -1,26 +1,171 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf9f6;
+  --background-alt: #f0ede6;
+  --foreground: #121212;
+  --muted: #6b6560;
+  --accent: #1a3a5c;
+  --accent-soft: #c4a574;
+  --surface: #ffffff;
+  --border: rgba(18, 18, 18, 0.08);
+  --shadow: 0 24px 64px rgba(18, 18, 18, 0.06);
+  --shadow-sm: 0 8px 32px rgba(18, 18, 18, 0.04);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-alt: var(--background-alt);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-instrument-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(26, 58, 92, 0.12);
+  color: var(--foreground);
+}
+
+.font-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+}
+
+.section-padding {
+  @apply px-5 py-20 sm:py-28 md:px-10 md:py-32 lg:px-16 xl:px-24;
+}
+
+.container-wide {
+  @apply mx-auto max-w-[1400px];
+}
+
+.card-surface {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Katana-style spaced lettering */
+.spaced-heading {
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  .spaced-heading {
+    letter-spacing: 0.35em;
+    font-size: 0.6875rem;
+  }
+}
+
+.line-reveal {
+  overflow: hidden;
+}
+
+.spaced-word {
+  display: inline-block;
+}
+
+.spaced-word + .spaced-word {
+  margin-left: 0.35em;
+}
+
+.scroll-hint {
+  animation: float-y 2.4s ease-in-out infinite;
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 40s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.gradient-mesh {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 20%, rgba(196, 165, 116, 0.12), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(26, 58, 92, 0.06), transparent),
+    var(--background);
+}
+
+.line-reveal {
+  overflow: hidden;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border) 20%,
+    var(--border) 80%,
+    transparent
+  );
 }
