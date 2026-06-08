@@ -8,9 +8,9 @@ export const personalInfo = {
     "Results-driven MERN Stack Developer with experience in designing and developing scalable web applications using React.js, Next.js, Node.js, Express.js, and TypeScript. Skilled in building microservice-based applications following Clean Architecture principles. Experienced in cloud deployment, containerization, CI/CD implementation, and real-time applications.",
   social: {
     /** Profile URL — leave empty to hide */
-    github: "",
+    github: "https://github.com/rafirafi03",
     /** Profile URL — leave empty to hide */
-    linkedin: "",
+    linkedin: "https://www.linkedin.com/in/ahamad-rafi/",
     /** WhatsApp number with country code, digits only (91 + number) */
     whatsapp: "919746807689",
   },
