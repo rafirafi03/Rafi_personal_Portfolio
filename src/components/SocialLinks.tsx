@@ -33,6 +33,19 @@ function LinkedInIcon({ className }: { className?: string }) {
   );
 }
 
+function LeetCodeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden
+    >
+      <path d="M16.102 17.93 13.405 20.537c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662L5.426 16.174c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.039-1.901l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.498-1.366-.037-1.901-.535-.535-1.387-.553-1.902-.039l-2.466 2.503a5.07 5.07 0 0 0-1.338-2.447L5.93 2.297C4.93 1.298 3.294.956 1.93 1.565c-1.364.609-2.012 2.134-1.402 3.498l2.611 2.636a5.06 5.06 0 0 0-1.337 2.445L1.3 10.61c-.61 1.364-.252 2.999.747 3.999l2.697 2.606c.514.515 1.365.497 1.9-.038.535-.536.553-1.387.039-1.901l-2.609-2.636a5.07 5.07 0 0 0 1.338-2.447l2.466 2.503c.515.514 1.367.498 1.902-.037.535-.535.553-1.387.039-1.901l-2.467-2.503a5.055 5.055 0 0 0 2.445-1.337l2.609 2.636c.514.515 1.366.497 1.901-.038.536-.535.554-1.387.04-1.901z" />
+    </svg>
+  );
+}
+
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -75,6 +88,13 @@ export default function SocialLinks({
       icon: LinkedInIcon,
     },
     {
+      key: "leetcode",
+      href: social.leetcode,
+      label: "LeetCode",
+      icon: LeetCodeIcon,
+      leetcode: true,
+    },
+    {
       key: "whatsapp",
       href: whatsappUrl ?? undefined,
       label: "WhatsApp",
@@ -87,7 +107,7 @@ export default function SocialLinks({
 
   return (
     <div className={`flex flex-wrap items-center gap-3 ${className}`}>
-      {links.map(({ key, href, label, icon: Icon, whatsapp }) =>
+      {links.map(({ key, href, label, icon: Icon, whatsapp, leetcode }) =>
         showLabels ? (
           <a
             key={key}
@@ -95,7 +115,11 @@ export default function SocialLinks({
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex items-center rounded-full border border-border bg-surface font-medium text-foreground transition-all hover:border-accent/30 hover:shadow-sm ${sizes.text} ${
-              whatsapp ? "hover:border-[#25D366]/40 hover:text-[#25D366]" : ""
+              whatsapp
+                ? "hover:border-[#25D366]/40 hover:text-[#25D366]"
+                : leetcode
+                  ? "hover:border-[#FFA116]/40 hover:text-[#FFA116]"
+                  : ""
             }`}
             aria-label={label}
           >
@@ -110,7 +134,13 @@ export default function SocialLinks({
             rel="noopener noreferrer"
             className={`inline-flex items-center justify-center rounded-full border border-border bg-surface text-foreground transition-all hover:border-accent/30 hover:shadow-sm ${
               sizes.btn
-            } ${whatsapp ? "hover:border-[#25D366]/40 hover:text-[#25D366]" : ""}`}
+            } ${
+              whatsapp
+                ? "hover:border-[#25D366]/40 hover:text-[#25D366]"
+                : leetcode
+                  ? "hover:border-[#FFA116]/40 hover:text-[#FFA116]"
+                  : ""
+            }`}
             aria-label={label}
             title={label}
           >

@@ -11,6 +11,7 @@ export const personalInfo = {
     github: "https://github.com/rafirafi03",
     /** Profile URL — leave empty to hide */
     linkedin: "https://www.linkedin.com/in/ahamad-rafi/",
+    /** Profile URL — leave empty to hide */
     leetcode: "https://leetcode.com/u/rafi_03/",
     /** WhatsApp number with country code, digits only (91 + number) */
     whatsapp: "919746807689",
