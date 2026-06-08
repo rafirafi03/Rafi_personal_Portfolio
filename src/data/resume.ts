@@ -36,12 +36,10 @@ export const skills = {
   backend: [
     "Node.js",
     "Express.js",
-    "REST APIs",
     "Sanity CMS",
     "Kafka",
     "RabbitMQ",
     "gRPC",
-    "API Gateway",
   ],
   databases: ["MongoDB", "PostgreSQL", "Redis"],
   architecture: [
